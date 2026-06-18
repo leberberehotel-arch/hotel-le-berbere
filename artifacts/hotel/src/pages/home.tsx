@@ -4,10 +4,11 @@ import { useListRooms, useListExperiences, useListRestaurants, useListReviews, u
 import { BookingWidget } from "@/components/booking-widget";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" as const } }
 };
 
 const staggerContainer = {
@@ -16,6 +17,7 @@ const staggerContainer = {
 };
 
 export default function Home() {
+  const { t } = useLanguage();
   const { data: featuredRooms, isLoading: isLoadingRooms } = useListRooms({ featured: true });
   const { data: experiences } = useListExperiences();
   const { data: restaurants } = useListRestaurants();
@@ -41,13 +43,15 @@ export default function Home() {
           variants={staggerContainer}
         >
           <motion.p variants={fadeInUp} className="text-primary tracking-[0.3em] uppercase text-sm mb-6">
-            Welcome to the Oasis
+            {t.home.heroEyebrow}
           </motion.p>
           <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl lg:text-8xl font-serif text-foreground leading-tight mb-8">
-            Where Time <br /> Stands Still
+            {t.home.heroHeading.split(" / ").map((line, i) => (
+              <span key={i}>{line}{i === 0 ? <br /> : ""}</span>
+            ))}
           </motion.h1>
           <motion.p variants={fadeInUp} className="text-foreground/80 text-lg md:text-xl font-light tracking-wide max-w-2xl mx-auto">
-            Discover a sanctuary of quiet opulence, hand-laid zellige tiles, and golden lantern light in the heart of Marrakech.
+            {t.home.heroSubtext}
           </motion.p>
         </motion.div>
 
@@ -65,9 +69,9 @@ export default function Home() {
           variants={fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-serif text-foreground mb-4">Signature Suites</h2>
+          <h2 className="text-3xl md:text-5xl font-serif text-foreground mb-4">{t.home.suitesHeading}</h2>
           <div className="w-24 h-[1px] bg-primary mx-auto mb-6" />
-          <p className="text-muted-foreground max-w-2xl mx-auto">Residences designed for the most discerning travelers, featuring private courtyards and bespoke craftsmanship.</p>
+          <p className="text-muted-foreground max-w-2xl mx-auto">{t.home.suitesSubtext}</p>
         </motion.div>
 
         {isLoadingRooms ? (
@@ -99,7 +103,7 @@ export default function Home() {
                   <p className="text-muted-foreground line-clamp-2 mb-6">{room.shortDescription || room.description}</p>
                   <Link href={`/rooms/${room.id}`}>
                     <Button variant="link" className="p-0 text-primary hover:text-primary/80 uppercase tracking-widest text-sm rounded-none">
-                      Discover Suite <ArrowRight className="ml-2 h-4 w-4" />
+                      {t.home.discoverSuite} <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
                 </div>
@@ -111,7 +115,7 @@ export default function Home() {
         <div className="text-center mt-12">
           <Link href="/rooms">
             <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-none tracking-widest uppercase px-8 h-12">
-              View All Rooms
+              {t.home.viewAllRooms}
             </Button>
           </Link>
         </div>
@@ -150,14 +154,14 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="md:w-1/2"
           >
-            <h2 className="text-primary tracking-widest uppercase text-sm mb-4">Wellness Sanctuary</h2>
-            <h3 className="text-4xl md:text-5xl font-serif mb-6">The Royal Hammam</h3>
+            <h2 className="text-primary tracking-widest uppercase text-sm mb-4">{t.home.wellnessEyebrow}</h2>
+            <h3 className="text-4xl md:text-5xl font-serif mb-6">{t.home.wellnessHeading}</h3>
             <p className="text-foreground/80 leading-relaxed mb-8 text-lg font-light">
-              Surrender to ancient Moroccan rituals in our underground marble sanctuary. Infused with eucalyptus, black soap, and pure argan oil, our spa experiences are designed to purify both body and soul.
+              {t.home.wellnessBody}
             </p>
             <Link href="/experiences">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none tracking-widest uppercase px-8 h-12">
-                Explore Spa Menu
+                {t.home.exploreSpa}
               </Button>
             </Link>
           </motion.div>
@@ -174,7 +178,7 @@ export default function Home() {
             variants={fadeInUp}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-serif mb-4">Guest Book</h2>
+            <h2 className="text-3xl font-serif mb-4">{t.home.guestBook}</h2>
             <div className="w-16 h-[1px] bg-primary mx-auto" />
           </motion.div>
 

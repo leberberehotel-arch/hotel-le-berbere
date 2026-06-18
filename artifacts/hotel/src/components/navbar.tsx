@@ -3,21 +3,23 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
-
-const navLinks = [
-  { name: "Home", path: "/" },
-  { name: "Rooms", path: "/rooms" },
-  { name: "Experiences", path: "/experiences" },
-  { name: "Dining", path: "/restaurants" },
-  { name: "Gallery", path: "/gallery" },
-  { name: "About", path: "/about" },
-  { name: "Contact", path: "/contact" },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function Navbar() {
+  const { t, toggle } = useLanguage();
   const [location] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { name: t.nav.home, path: "/" },
+    { name: t.nav.rooms, path: "/rooms" },
+    { name: t.nav.experiences, path: "/experiences" },
+    { name: t.nav.dining, path: "/restaurants" },
+    { name: t.nav.gallery, path: "/gallery" },
+    { name: t.nav.about, path: "/about" },
+    { name: t.nav.contact, path: "/contact" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,7 +29,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location]);
@@ -65,7 +66,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             <div className="flex gap-6">
               {navLinks.map((link) => (
                 <Link
@@ -81,19 +82,34 @@ export function Navbar() {
             </div>
             <Link href="/book">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-serif tracking-widest uppercase rounded-none border border-primary/50 relative overflow-hidden group">
-                <span className="relative z-10">Book Now</span>
+                <span className="relative z-10">{t.nav.bookNow}</span>
                 <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent z-0"></div>
               </Button>
             </Link>
+            {/* Language Switcher */}
+            <button
+              onClick={toggle}
+              className="text-xs uppercase tracking-widest border border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-colors px-3 py-1.5 font-medium"
+            >
+              {t.langSwitcher}
+            </button>
           </div>
 
           {/* Mobile Toggle */}
-          <button
-            className="md:hidden text-foreground hover:text-primary transition-colors"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+          <div className="md:hidden flex items-center gap-3">
+            <button
+              onClick={toggle}
+              className="text-xs uppercase tracking-widest border border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-colors px-3 py-1.5 font-medium"
+            >
+              {t.langSwitcher}
+            </button>
+            <button
+              className="text-foreground hover:text-primary transition-colors"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
       </motion.nav>
 
@@ -133,7 +149,7 @@ export function Navbar() {
               >
                 <Link href="/book">
                   <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-serif tracking-widest text-lg px-8 py-6 rounded-none">
-                    Book Now
+                    {t.nav.bookNow}
                   </Button>
                 </Link>
               </motion.div>

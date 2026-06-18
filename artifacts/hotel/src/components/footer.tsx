@@ -8,12 +8,14 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { useSubscribeNewsletter } from "@workspace/api-client-react";
 import { Instagram, Facebook, Youtube, Compass } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const newsletterSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
 });
 
 export function Footer() {
+  const { t } = useLanguage();
   const { toast } = useToast();
   const subscribeMutation = useSubscribeNewsletter();
 
@@ -27,18 +29,11 @@ export function Footer() {
       { data: { email: values.email } },
       {
         onSuccess: () => {
-          toast({
-            title: "Subscribed Successfully",
-            description: "Welcome to the Hotel Le Berbère journal.",
-          });
+          toast({ title: t.footer.subscribedTitle, description: t.footer.subscribedDesc });
           form.reset();
         },
         onError: () => {
-          toast({
-            variant: "destructive",
-            title: "Subscription Failed",
-            description: "There was an error subscribing. Please try again.",
-          });
+          toast({ variant: "destructive", title: t.footer.subscribeFailTitle, description: t.footer.subscribeFailDesc });
         },
       }
     );
@@ -48,7 +43,7 @@ export function Footer() {
     <footer className="bg-[#0A0A0A] border-t border-primary/20 pt-20 pb-10">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-20">
-          
+
           {/* Brand */}
           <div className="col-span-1 md:col-span-1 flex flex-col items-start">
             <Link href="/" className="flex items-center gap-2 group mb-6">
@@ -60,7 +55,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-8">
-              Where old-world Moroccan craftsmanship meets modern luxury. A sanctuary in the foothills of the Atlas Mountains.
+              {t.footer.tagline}
             </p>
             <div className="flex gap-4">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Instagram size={20} /></a>
@@ -72,19 +67,19 @@ export function Footer() {
 
           {/* Navigation */}
           <div className="col-span-1">
-            <h4 className="font-serif text-lg text-foreground tracking-widest mb-6">Explore</h4>
+            <h4 className="font-serif text-lg text-foreground tracking-widest mb-6">{t.footer.explore}</h4>
             <ul className="space-y-4">
-              <li><Link href="/rooms" className="text-muted-foreground hover:text-primary text-sm uppercase tracking-wider transition-colors">Suites & Rooms</Link></li>
-              <li><Link href="/experiences" className="text-muted-foreground hover:text-primary text-sm uppercase tracking-wider transition-colors">Experiences</Link></li>
-              <li><Link href="/restaurants" className="text-muted-foreground hover:text-primary text-sm uppercase tracking-wider transition-colors">Fine Dining</Link></li>
-              <li><Link href="/gallery" className="text-muted-foreground hover:text-primary text-sm uppercase tracking-wider transition-colors">Gallery</Link></li>
-              <li><Link href="/about" className="text-muted-foreground hover:text-primary text-sm uppercase tracking-wider transition-colors">Our Story</Link></li>
+              <li><Link href="/rooms" className="text-muted-foreground hover:text-primary text-sm uppercase tracking-wider transition-colors">{t.footer.suites}</Link></li>
+              <li><Link href="/experiences" className="text-muted-foreground hover:text-primary text-sm uppercase tracking-wider transition-colors">{t.footer.experiences}</Link></li>
+              <li><Link href="/restaurants" className="text-muted-foreground hover:text-primary text-sm uppercase tracking-wider transition-colors">{t.footer.fineDining}</Link></li>
+              <li><Link href="/gallery" className="text-muted-foreground hover:text-primary text-sm uppercase tracking-wider transition-colors">{t.footer.gallery}</Link></li>
+              <li><Link href="/about" className="text-muted-foreground hover:text-primary text-sm uppercase tracking-wider transition-colors">{t.footer.ourStory}</Link></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div className="col-span-1">
-            <h4 className="font-serif text-lg text-foreground tracking-widest mb-6">Contact</h4>
+            <h4 className="font-serif text-lg text-foreground tracking-widest mb-6">{t.footer.contact}</h4>
             <ul className="space-y-4 text-muted-foreground text-sm">
               <li className="leading-relaxed">
                 12 Rue de la Kasbah<br />
@@ -98,9 +93,9 @@ export function Footer() {
 
           {/* Newsletter */}
           <div className="col-span-1 md:col-span-1">
-            <h4 className="font-serif text-lg text-foreground tracking-widest mb-6">The Journal</h4>
+            <h4 className="font-serif text-lg text-foreground tracking-widest mb-6">{t.footer.journal}</h4>
             <p className="text-muted-foreground text-sm mb-6">
-              Subscribe to receive updates on exclusive offers, cultural events, and new culinary experiences.
+              {t.footer.journalSub}
             </p>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -112,16 +107,16 @@ export function Footer() {
                       <FormControl>
                         <div className="flex">
                           <Input
-                            placeholder="Email Address"
+                            placeholder={t.footer.emailPlaceholder}
                             className="bg-transparent border-primary/30 rounded-none focus-visible:ring-primary text-sm"
                             {...field}
                           />
-                          <Button 
-                            type="submit" 
+                          <Button
+                            type="submit"
                             disabled={subscribeMutation.isPending}
                             className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none border-y border-r border-primary uppercase tracking-widest text-xs px-6"
                           >
-                            {subscribeMutation.isPending ? "..." : "Join"}
+                            {subscribeMutation.isPending ? "..." : t.footer.join}
                           </Button>
                         </div>
                       </FormControl>
@@ -136,12 +131,12 @@ export function Footer() {
 
         <div className="mt-20 pt-8 border-t border-primary/20 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-muted-foreground tracking-wider uppercase">
-            &copy; {new Date().getFullYear()} Hotel Le Berbère. All rights reserved.
+            {t.footer.rights}
           </p>
           <div className="flex gap-6">
-            <Link href="/admin" className="text-xs text-muted-foreground hover:text-primary tracking-wider uppercase transition-colors">Admin</Link>
-            <a href="#" className="text-xs text-muted-foreground hover:text-primary tracking-wider uppercase transition-colors">Privacy Policy</a>
-            <a href="#" className="text-xs text-muted-foreground hover:text-primary tracking-wider uppercase transition-colors">Terms of Service</a>
+            <Link href="/admin" className="text-xs text-muted-foreground hover:text-primary tracking-wider uppercase transition-colors">{t.footer.admin}</Link>
+            <a href="#" className="text-xs text-muted-foreground hover:text-primary tracking-wider uppercase transition-colors">{t.footer.privacy}</a>
+            <a href="#" className="text-xs text-muted-foreground hover:text-primary tracking-wider uppercase transition-colors">{t.footer.terms}</a>
           </div>
         </div>
       </div>

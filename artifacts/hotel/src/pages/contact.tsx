@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { useSubmitContact } from "@workspace/api-client-react";
 import { useForm } from "react-hook-form";
@@ -11,6 +10,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { MapPin, Phone, Mail, Clock, Compass } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -22,19 +22,13 @@ const contactSchema = z.object({
 });
 
 export default function Contact() {
+  const { t } = useLanguage();
   const { toast } = useToast();
   const submitMutation = useSubmitContact();
 
   const form = useForm<z.infer<typeof contactSchema>>({
     resolver: zodResolver(contactSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-      preferredContact: "email",
-    },
+    defaultValues: { name: "", email: "", phone: "", subject: "", message: "", preferredContact: "email" },
   });
 
   const onSubmit = (data: z.infer<typeof contactSchema>) => {
@@ -42,18 +36,11 @@ export default function Contact() {
       { data },
       {
         onSuccess: () => {
-          toast({
-            title: "Inquiry Sent",
-            description: "Our concierge team will contact you shortly.",
-          });
+          toast({ title: t.contact.inquirySent, description: t.contact.conciergeContact });
           form.reset();
         },
         onError: () => {
-          toast({
-            variant: "destructive",
-            title: "Failed to Send",
-            description: "Please try again or contact us directly via phone.",
-          });
+          toast({ variant: "destructive", title: t.contact.failedSend, description: t.contact.tryAgain });
         },
       }
     );
@@ -62,22 +49,22 @@ export default function Contact() {
   return (
     <div className="min-h-screen w-full pt-32 pb-24 bg-background">
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-6xl font-serif text-foreground mb-6">Contact & Location</h1>
+          <h1 className="text-4xl md:text-6xl font-serif text-foreground mb-6">{t.contact.heading}</h1>
           <div className="w-24 h-[1px] bg-primary mx-auto mb-8" />
           <p className="text-foreground/80 max-w-2xl mx-auto font-light leading-relaxed">
-            Whether you require a reservation, transportation from the airport, or assistance crafting a personalized itinerary, our dedicated team is at your service.
+            {t.contact.subtext}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Info & Map */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -90,7 +77,7 @@ export default function Contact() {
                     <MapPin className="w-4 h-4 text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-sm tracking-widest uppercase text-foreground mb-2">Address</h4>
+                    <h4 className="text-sm tracking-widest uppercase text-foreground mb-2">{t.contact.address}</h4>
                     <p className="text-muted-foreground font-light text-sm leading-relaxed">
                       12 Rue de la Kasbah<br />
                       Medina, Marrakech 40000<br />
@@ -104,7 +91,7 @@ export default function Contact() {
                     <Phone className="w-4 h-4 text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-sm tracking-widest uppercase text-foreground mb-2">Telephone</h4>
+                    <h4 className="text-sm tracking-widest uppercase text-foreground mb-2">{t.contact.telephone}</h4>
                     <p className="text-muted-foreground font-light text-sm">
                       <a href="tel:+212524389000" className="hover:text-primary transition-colors">+212 524 38 90 00</a>
                     </p>
@@ -118,7 +105,7 @@ export default function Contact() {
                     <Mail className="w-4 h-4 text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-sm tracking-widest uppercase text-foreground mb-2">Email</h4>
+                    <h4 className="text-sm tracking-widests uppercase text-foreground mb-2">{t.contact.emailLabel}</h4>
                     <p className="text-muted-foreground font-light text-sm">
                       <a href="mailto:concierge@hotelberbere.com" className="hover:text-primary transition-colors">concierge@hotelberbere.com</a>
                     </p>
@@ -130,9 +117,9 @@ export default function Contact() {
                     <Clock className="w-4 h-4 text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-sm tracking-widest uppercase text-foreground mb-2">Reception</h4>
+                    <h4 className="text-sm tracking-widests uppercase text-foreground mb-2">{t.contact.reception}</h4>
                     <p className="text-muted-foreground font-light text-sm">
-                      Available 24 hours
+                      {t.contact.available24}
                     </p>
                   </div>
                 </div>
@@ -143,23 +130,23 @@ export default function Contact() {
               <div className="absolute top-0 right-0 p-4 opacity-10">
                 <Compass size={120} />
               </div>
-              <h3 className="text-2xl font-serif text-foreground mb-4 relative z-10">Les Clefs d'Or Concierge</h3>
+              <h3 className="text-2xl font-serif text-foreground mb-4 relative z-10">{t.contact.conciergeHeading}</h3>
               <p className="text-foreground/80 font-light text-sm leading-relaxed mb-6 relative z-10 max-w-md">
-                Our concierge desk can arrange VIP airport transfers, private Medina tours, exclusive access to historical sites, and hard-to-get restaurant reservations.
+                {t.contact.conciergeBody}
               </p>
               <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground rounded-none uppercase tracking-widest text-xs h-10 relative z-10">
-                Request Service Menu
+                {t.contact.requestService}
               </Button>
             </div>
 
             <div className="h-[400px] w-full border border-primary/20 bg-muted relative">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13587.892695505089!2d-8.00164801314647!3d31.627705193952445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafee9eb2811cb5%3A0x6b445763dc01f2e!2sMedina%20of%20Marrakesh!5e0!3m2!1sen!2sma!4v1709675305149!5m2!1sen!2sma" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0, filter: "grayscale(1) contrast(1.2) brightness(0.8)" }} 
-                allowFullScreen={false} 
-                loading="lazy" 
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13587.892695505089!2d-8.00164801314647!3d31.627705193952445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafee9eb2811cb5%3A0x6b445763dc01f2e!2sMedina%20of%20Marrakesh!5e0!3m2!1sen!2sma!4v1709675305149!5m2!1sen!2sma"
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: "grayscale(1) contrast(1.2) brightness(0.8)" }}
+                allowFullScreen={false}
+                loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Hotel Le Berbère Location"
               ></iframe>
@@ -167,130 +154,103 @@ export default function Contact() {
           </motion.div>
 
           {/* Form */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="bg-card border border-primary/30 p-8 md:p-12"
           >
-            <h3 className="text-3xl font-serif text-foreground mb-8">Send an Inquiry</h3>
+            <h3 className="text-3xl font-serif text-foreground mb-8">{t.contact.formHeading}</h3>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-xs uppercase tracking-widest text-muted-foreground">Full Name</FormLabel>
-                        <FormControl>
-                          <Input className="rounded-none border-border bg-background focus-visible:ring-primary h-12" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-xs uppercase tracking-widest text-muted-foreground">Email Address</FormLabel>
-                        <FormControl>
-                          <Input type="email" className="rounded-none border-border bg-background focus-visible:ring-primary h-12" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                  <FormField control={form.control} name="name" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-xs uppercase tracking-widest text-muted-foreground">{t.contact.yourName}</FormLabel>
+                      <FormControl>
+                        <Input className="rounded-none border-border bg-background focus-visible:ring-primary h-12" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                  <FormField control={form.control} name="email" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-xs uppercase tracking-widest text-muted-foreground">{t.contact.yourEmail}</FormLabel>
+                      <FormControl>
+                        <Input type="email" className="rounded-none border-border bg-background focus-visible:ring-primary h-12" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <FormField
-                    control={form.control}
-                    name="phone"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-xs uppercase tracking-widest text-muted-foreground">Phone Number (Optional)</FormLabel>
-                        <FormControl>
-                          <Input className="rounded-none border-border bg-background focus-visible:ring-primary h-12" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="preferredContact"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-xs uppercase tracking-widest text-muted-foreground">Preferred Contact</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger className="rounded-none border-border bg-background focus-visible:ring-primary h-12">
-                              <SelectValue placeholder="Select preference" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent className="rounded-none border-border bg-popover">
-                            <SelectItem value="email">Email</SelectItem>
-                            <SelectItem value="phone">Phone</SelectItem>
-                            <SelectItem value="whatsapp">WhatsApp</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-
-                <FormField
-                  control={form.control}
-                  name="subject"
-                  render={({ field }) => (
+                  <FormField control={form.control} name="phone" render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-xs uppercase tracking-widest text-muted-foreground">Subject</FormLabel>
+                      <FormLabel className="text-xs uppercase tracking-widests text-muted-foreground">{t.contact.phone}</FormLabel>
+                      <FormControl>
+                        <Input className="rounded-none border-border bg-background focus-visible:ring-primary h-12" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                  <FormField control={form.control} name="preferredContact" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-xs uppercase tracking-widests text-muted-foreground">{t.contact.preferredContact}</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                           <SelectTrigger className="rounded-none border-border bg-background focus-visible:ring-primary h-12">
-                            <SelectValue placeholder="Select a subject" />
+                            <SelectValue />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent className="rounded-none border-border bg-popover">
-                          <SelectItem value="reservation">Room Reservation</SelectItem>
-                          <SelectItem value="dining">Dining Reservation</SelectItem>
-                          <SelectItem value="spa">Spa & Hammam</SelectItem>
-                          <SelectItem value="event">Private Event</SelectItem>
-                          <SelectItem value="other">Other Inquiry</SelectItem>
+                          <SelectItem value="email">Email</SelectItem>
+                          <SelectItem value="phone">Phone</SelectItem>
+                          <SelectItem value="whatsapp">WhatsApp</SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
                     </FormItem>
-                  )}
-                />
+                  )} />
+                </div>
 
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-xs uppercase tracking-widest text-muted-foreground">Message</FormLabel>
+                <FormField control={form.control} name="subject" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-xs uppercase tracking-widests text-muted-foreground">{t.contact.subject}</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
-                        <Textarea 
-                          className="rounded-none border-border bg-background focus-visible:ring-primary min-h-[150px] resize-none" 
-                          {...field} 
-                        />
+                        <SelectTrigger className="rounded-none border-border bg-background focus-visible:ring-primary h-12">
+                          <SelectValue />
+                        </SelectTrigger>
                       </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                      <SelectContent className="rounded-none border-border bg-popover">
+                        <SelectItem value="reservation">Room Reservation</SelectItem>
+                        <SelectItem value="dining">Dining Reservation</SelectItem>
+                        <SelectItem value="spa">Spa & Hammam</SelectItem>
+                        <SelectItem value="event">Private Event</SelectItem>
+                        <SelectItem value="other">Other Inquiry</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )} />
 
-                <Button 
-                  type="submit" 
+                <FormField control={form.control} name="message" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-xs uppercase tracking-widests text-muted-foreground">{t.contact.message}</FormLabel>
+                    <FormControl>
+                      <Textarea className="rounded-none border-border bg-background focus-visible:ring-primary min-h-[150px] resize-none" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+
+                <Button
+                  type="submit"
                   className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-none tracking-widest uppercase h-14 mt-4"
                   disabled={submitMutation.isPending}
                 >
-                  {submitMutation.isPending ? "Sending..." : "Send Message"}
+                  {submitMutation.isPending ? t.contact.sending : t.contact.send}
                 </Button>
               </form>
             </Form>
