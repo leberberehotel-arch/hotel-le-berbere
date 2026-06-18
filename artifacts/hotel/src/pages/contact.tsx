@@ -120,7 +120,7 @@ export default function Contact() {
                   <div>
                     <h4 className="text-sm tracking-widest uppercase text-foreground mb-2">Email</h4>
                     <p className="text-muted-foreground font-light text-sm">
-                      <a href="mailto:concierge@riadlumiere.com" className="hover:text-primary transition-colors">concierge@riadlumiere.com</a>
+                      <a href="mailto:concierge@hotelberbere.com" className="hover:text-primary transition-colors">concierge@hotelberbere.com</a>
                     </p>
                   </div>
                 </div>
@@ -161,7 +161,7 @@ export default function Contact() {
                 allowFullScreen={false} 
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Riad Lumière Location"
+                title="Hotel Le Berbère Location"
               ></iframe>
             </div>
           </motion.div>

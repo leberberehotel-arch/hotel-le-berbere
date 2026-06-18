@@ -60,7 +60,7 @@ export function Navbar() {
               />
             </svg>
             <span className="font-serif text-2xl tracking-widest text-foreground group-hover:text-primary transition-colors duration-300">
-              RIAD LUMIÈRE
+              HOTEL LE BERBÈRE
             </span>
           </Link>
 

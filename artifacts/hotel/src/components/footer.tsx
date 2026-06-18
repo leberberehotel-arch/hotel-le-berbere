@@ -29,7 +29,7 @@ export function Footer() {
         onSuccess: () => {
           toast({
             title: "Subscribed Successfully",
-            description: "Welcome to the Riad Lumière journal.",
+            description: "Welcome to the Hotel Le Berbère journal.",
           });
           form.reset();
         },
@@ -56,7 +56,7 @@ export function Footer() {
                 <path d="M12 2L14.4 9.6H22L15.8 14.4L18.2 22L12 17.2L5.8 22L8.2 14.4L2 9.6H9.6L12 2Z" fill="currentColor"/>
               </svg>
               <span className="font-serif text-2xl tracking-widest text-foreground">
-                RIAD LUMIÈRE
+                HOTEL LE BERBÈRE
               </span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-8">
@@ -92,7 +92,7 @@ export function Footer() {
                 Morocco
               </li>
               <li><a href="tel:+212524389000" className="hover:text-primary transition-colors">+212 524 38 90 00</a></li>
-              <li><a href="mailto:concierge@riadlumiere.com" className="hover:text-primary transition-colors">concierge@riadlumiere.com</a></li>
+              <li><a href="mailto:concierge@hotelberbere.com" className="hover:text-primary transition-colors">concierge@hotelberbere.com</a></li>
             </ul>
           </div>
 
@@ -136,7 +136,7 @@ export function Footer() {
 
         <div className="mt-20 pt-8 border-t border-primary/20 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-muted-foreground tracking-wider uppercase">
-            &copy; {new Date().getFullYear()} Riad Lumière. All rights reserved.
+            &copy; {new Date().getFullYear()} Hotel Le Berbère. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link href="/admin" className="text-xs text-muted-foreground hover:text-primary tracking-wider uppercase transition-colors">Admin</Link>

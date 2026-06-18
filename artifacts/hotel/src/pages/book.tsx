@@ -495,7 +495,7 @@ export default function Book() {
                   <Check size={40} />
                 </div>
                 <h2 className="text-4xl md:text-5xl font-serif text-foreground mb-4">Reservation Confirmed</h2>
-                <p className="text-foreground/80 font-light text-lg mb-8">We look forward to welcoming you to Riad Lumière.</p>
+                <p className="text-foreground/80 font-light text-lg mb-8">We look forward to welcoming you to Hotel Le Berbère.</p>
                 
                 <div className="bg-card border border-primary/30 p-8 mb-8 inline-block text-left w-full max-w-md">
                   <div className="text-xs uppercase tracking-widest text-muted-foreground mb-1 text-center">Confirmation Code</div>

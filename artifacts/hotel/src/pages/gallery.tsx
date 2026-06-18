@@ -44,7 +44,7 @@ export default function Gallery() {
           <h1 className="text-4xl md:text-6xl font-serif text-foreground mb-6">Gallery</h1>
           <div className="w-24 h-[1px] bg-primary mx-auto mb-8" />
           <p className="text-foreground/80 max-w-2xl mx-auto font-light leading-relaxed">
-            A visual journey through the exquisite details, lush courtyards, and quiet opulence of Riad Lumière.
+            A visual journey through the exquisite details, lush courtyards, and quiet opulence of Hotel Le Berbère.
           </p>
         </motion.div>
 

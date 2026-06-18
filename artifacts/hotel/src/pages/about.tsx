@@ -34,7 +34,7 @@ export default function About() {
             <h2 className="text-primary tracking-widest uppercase text-sm mb-4 font-medium">A Century of Elegance</h2>
             <h3 className="text-3xl md:text-4xl font-serif mb-6 text-foreground leading-tight">Built in 1923. <br />Restored in 2019.</h3>
             <p className="text-foreground/80 font-light leading-relaxed mb-6">
-              Riad Lumière began as the private residence of a prominent silk merchant. For decades, its heavy cedar doors shielded a sanctuary of quiet beauty from the bustling medina outside. 
+              Hotel Le Berbère began as the private residence of a prominent silk merchant. For decades, its heavy cedar doors shielded a sanctuary of quiet beauty from the bustling medina outside. 
             </p>
             <p className="text-foreground/80 font-light leading-relaxed">
               When we acquired the property in 2017, our mission was simple: preserve the soul of the riad while elevating it to meet the expectations of the modern luxury traveler. We spent two years working exclusively with local artisans — master carvers, zellige tile layers, and tadelakt plasterers — to restore every inch of the estate by hand.
@@ -82,7 +82,7 @@ export default function About() {
             <div>
               <h3 className="text-3xl font-serif mb-6 text-foreground">Sustainability Commitment</h3>
               <p className="text-foreground/80 font-light leading-relaxed">
-                Our connection to the Atlas Mountains and the vibrant city of Marrakech comes with a responsibility to protect them. Riad Lumière is a zero-single-use-plastic property. Our kitchens source 90% of ingredients from organic farms within a 50-kilometer radius, and our bath amenities are crafted locally using sustainably harvested argan oil and indigenous botanicals.
+                Our connection to the Atlas Mountains and the vibrant city of Marrakech comes with a responsibility to protect them. Hotel Le Berbère is a zero-single-use-plastic property. Our kitchens source 90% of ingredients from organic farms within a 50-kilometer radius, and our bath amenities are crafted locally using sustainably harvested argan oil and indigenous botanicals.
               </p>
             </div>
             <div className="flex flex-col justify-center space-y-6">

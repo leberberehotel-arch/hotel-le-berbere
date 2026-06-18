@@ -28,7 +28,7 @@ export default function Admin({ params }: { params?: { tab?: string } }) {
       {/* Sidebar */}
       <div className="w-64 bg-sidebar border-r border-sidebar-border flex flex-col">
         <div className="h-20 flex items-center px-6 border-b border-sidebar-border">
-          <span className="font-serif text-xl tracking-widest text-sidebar-foreground">LUMIÈRE ADMIN</span>
+          <span className="font-serif text-xl tracking-widest text-sidebar-foreground">LE BERBÈRE ADMIN</span>
         </div>
         <div className="flex-1 py-6 px-4 space-y-2">
           <Button 
