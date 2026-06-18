@@ -6,3 +6,9 @@ id = "8Unpx-mdRnJ1RZJfosN8x"
 uri = "file://project.tar.gz"
 type = "unspecified"
 title = "Hotel Le Berbère — Full Project (project.tar.gz)"
+
+[[outputs]]
+id = "lMnwuqw41Qq-AKgxs_UP8"
+uri = "file://project.zip"
+type = "unspecified"
+title = "Hotel Le Berbère — project.zip"
