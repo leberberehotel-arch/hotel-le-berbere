@@ -61,7 +61,7 @@ export default function Home() {
       </section>
 
       {/* Featured Suites */}
-      <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto mt-16">
+      <section className="pt-16 pb-20 px-6 md:px-12 max-w-7xl mx-auto mt-6">
         <motion.div 
           initial="hidden"
           whileInView="visible"

@@ -67,7 +67,7 @@ export function Footer() {
 
           {/* Navigation */}
           <div className="col-span-1">
-            <h4 className="font-serif text-lg text-foreground tracking-widest mb-6">{t.footer.explore}</h4>
+            <h4 className="font-serif text-lg text-foreground tracking-widests mb-6">{t.footer.explore}</h4>
             <ul className="space-y-4">
               <li><Link href="/rooms" className="text-muted-foreground hover:text-primary text-sm uppercase tracking-wider transition-colors">{t.footer.suites}</Link></li>
               <li><Link href="/experiences" className="text-muted-foreground hover:text-primary text-sm uppercase tracking-wider transition-colors">{t.footer.experiences}</Link></li>
@@ -79,21 +79,35 @@ export function Footer() {
 
           {/* Contact */}
           <div className="col-span-1">
-            <h4 className="font-serif text-lg text-foreground tracking-widest mb-6">{t.footer.contact}</h4>
+            <h4 className="font-serif text-lg text-foreground tracking-widests mb-6">{t.footer.contact}</h4>
             <ul className="space-y-4 text-muted-foreground text-sm">
               <li className="leading-relaxed">
-                12 Rue de la Kasbah<br />
-                Medina, Marrakech 40000<br />
-                Morocco
+                W8HJ+R7J, Hay Pam<br />
+                Khénifra 54000<br />
+                Province de Khénifra, Maroc
               </li>
               <li><a href="tel:+212524389000" className="hover:text-primary transition-colors">+212 524 38 90 00</a></li>
-              <li><a href="mailto:concierge@hotelberbere.com" className="hover:text-primary transition-colors">concierge@hotelberbere.com</a></li>
+              <li>
+                <a href="mailto:leberberehotel@gmail.com" className="hover:text-primary transition-colors break-all">
+                  leberberehotel@gmail.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://maps.app.goo.gl/nBD9bTVcDCfA23ss7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors uppercase tracking-wider text-xs"
+                >
+                  View on Map ↗
+                </a>
+              </li>
             </ul>
           </div>
 
           {/* Newsletter */}
           <div className="col-span-1 md:col-span-1">
-            <h4 className="font-serif text-lg text-foreground tracking-widest mb-6">{t.footer.journal}</h4>
+            <h4 className="font-serif text-lg text-foreground tracking-widests mb-6">{t.footer.journal}</h4>
             <p className="text-muted-foreground text-sm mb-6">
               {t.footer.journalSub}
             </p>

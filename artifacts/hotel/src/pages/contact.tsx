@@ -79,9 +79,10 @@ export default function Contact() {
                   <div>
                     <h4 className="text-sm tracking-widest uppercase text-foreground mb-2">{t.contact.address}</h4>
                     <p className="text-muted-foreground font-light text-sm leading-relaxed">
-                      12 Rue de la Kasbah<br />
-                      Medina, Marrakech 40000<br />
-                      Morocco
+                      W8HJ+R7J, Hay Pam<br />
+                      près du Lycée Abou El Kacem Zayani<br />
+                      Khénifra 54000<br />
+                      Province de Khénifra, Maroc
                     </p>
                   </div>
                 </div>
@@ -105,9 +106,9 @@ export default function Contact() {
                     <Mail className="w-4 h-4 text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-sm tracking-widests uppercase text-foreground mb-2">{t.contact.emailLabel}</h4>
+                    <h4 className="text-sm tracking-widest uppercase text-foreground mb-2">{t.contact.emailLabel}</h4>
                     <p className="text-muted-foreground font-light text-sm">
-                      <a href="mailto:concierge@hotelberbere.com" className="hover:text-primary transition-colors">concierge@hotelberbere.com</a>
+                      <a href="mailto:leberberehotel@gmail.com" className="hover:text-primary transition-colors">leberberehotel@gmail.com</a>
                     </p>
                   </div>
                 </div>
@@ -139,9 +140,9 @@ export default function Contact() {
               </Button>
             </div>
 
-            <div className="h-[400px] w-full border border-primary/20 bg-muted relative">
+            <div className="h-[400px] w-full border border-primary/20 bg-muted relative overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13587.892695505089!2d-8.00164801314647!3d31.627705193952445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafee9eb2811cb5%3A0x6b445763dc01f2e!2sMedina%20of%20Marrakesh!5e0!3m2!1sen!2sma!4v1709675305149!5m2!1sen!2sma"
+                src="https://maps.google.com/maps?q=W8HJ+R7J+Khenifra+Morocco&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0, filter: "grayscale(1) contrast(1.2) brightness(0.8)" }}
@@ -149,7 +150,15 @@ export default function Contact() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Hotel Le Berbère Location"
-              ></iframe>
+              />
+              <a
+                href="https://maps.app.goo.gl/nBD9bTVcDCfA23ss7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-3 right-3 bg-background/80 backdrop-blur-sm border border-primary/20 text-primary text-xs uppercase tracking-widest px-3 py-2 hover:bg-primary hover:text-primary-foreground transition-colors"
+              >
+                Open in Maps ↗
+              </a>
             </div>
           </motion.div>
 
@@ -187,7 +196,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <FormField control={form.control} name="phone" render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-xs uppercase tracking-widests text-muted-foreground">{t.contact.phone}</FormLabel>
+                      <FormLabel className="text-xs uppercase tracking-widest text-muted-foreground">{t.contact.phone}</FormLabel>
                       <FormControl>
                         <Input className="rounded-none border-border bg-background focus-visible:ring-primary h-12" {...field} />
                       </FormControl>
@@ -196,7 +205,7 @@ export default function Contact() {
                   )} />
                   <FormField control={form.control} name="preferredContact" render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-xs uppercase tracking-widests text-muted-foreground">{t.contact.preferredContact}</FormLabel>
+                      <FormLabel className="text-xs uppercase tracking-widest text-muted-foreground">{t.contact.preferredContact}</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                           <SelectTrigger className="rounded-none border-border bg-background focus-visible:ring-primary h-12">
@@ -216,7 +225,7 @@ export default function Contact() {
 
                 <FormField control={form.control} name="subject" render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-xs uppercase tracking-widests text-muted-foreground">{t.contact.subject}</FormLabel>
+                    <FormLabel className="text-xs uppercase tracking-widest text-muted-foreground">{t.contact.subject}</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                         <SelectTrigger className="rounded-none border-border bg-background focus-visible:ring-primary h-12">
@@ -237,7 +246,7 @@ export default function Contact() {
 
                 <FormField control={form.control} name="message" render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-xs uppercase tracking-widests text-muted-foreground">{t.contact.message}</FormLabel>
+                    <FormLabel className="text-xs uppercase tracking-widest text-muted-foreground">{t.contact.message}</FormLabel>
                     <FormControl>
                       <Textarea className="rounded-none border-border bg-background focus-visible:ring-primary min-h-[150px] resize-none" {...field} />
                     </FormControl>

@@ -53,12 +53,22 @@ export default function Admin({ params }: { params?: { tab?: string } }) {
             <Bed className="mr-3 h-5 w-5" /> Rooms & Suites
           </Button>
         </div>
-        <div className="p-4 border-t border-sidebar-border">
+        <div className="p-4 border-t border-sidebar-border space-y-2">
           <Link href="/">
             <Button variant="ghost" className="w-full justify-start text-sidebar-foreground hover:bg-sidebar-accent/50 rounded-none h-12">
               <LogOut className="mr-3 h-5 w-5" /> Exit Admin
             </Button>
           </Link>
+          <Button
+            variant="ghost"
+            className="w-full justify-start text-destructive hover:bg-destructive/10 rounded-none h-10 text-xs uppercase tracking-widests"
+            onClick={() => {
+              sessionStorage.removeItem("admin_token");
+              window.location.href = "/admin/login";
+            }}
+          >
+            Sign Out
+          </Button>
         </div>
       </div>
 

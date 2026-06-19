@@ -18,7 +18,7 @@ const translations = {
       heroEyebrow: "Welcome to the Oasis",
       heroHeading: "Where Time Stands Still",
       heroSubtext:
-        "Discover a sanctuary of quiet opulence, hand-laid zellige tiles, and golden lantern light in the heart of Marrakech.",
+        "Discover a sanctuary of Amazigh heritage, cedar mountain air, and warm hospitality in the heart of the Middle Atlas, Khénifra.",
       suitesHeading: "Signature Suites",
       suitesSubtext:
         "Residences designed for the most discerning travelers, featuring private courtyards and bespoke craftsmanship.",
@@ -27,7 +27,7 @@ const translations = {
       wellnessEyebrow: "Wellness Sanctuary",
       wellnessHeading: "The Royal Hammam",
       wellnessBody:
-        "Surrender to ancient Moroccan rituals in our underground marble sanctuary. Infused with eucalyptus, black soap, and pure argan oil, our spa experiences are designed to purify both body and soul.",
+        "Surrender to ancient Amazigh rituals in our serene hammam sanctuary. Infused with cedar oil, black soap, and pure argan from the Atlas, our wellness experiences are designed to purify both body and soul.",
       exploreSpa: "Explore Spa Menu",
       guestBook: "Guest Book",
     },
@@ -35,7 +35,7 @@ const translations = {
     rooms: {
       heading: "Suites & Rooms",
       subtext:
-        "Each of our residences is uniquely designed, featuring authentic Moroccan craftsmanship, antique furnishings, and modern amenities designed to offer ultimate comfort.",
+        "Each of our residences is uniquely designed, featuring authentic Amazigh craftsmanship, handwoven textiles, and modern amenities designed to offer ultimate comfort.",
       categories: {
         all: "All Residences",
         "riad-suite": "Riad Suites",
@@ -54,7 +54,7 @@ const translations = {
     experiences: {
       heading: "Curated Experiences",
       subtext:
-        "Immerse yourself in the magic of Marrakech with our bespoke selection of wellness rituals, cultural encounters, and exclusive adventures.",
+        "Immerse yourself in the magic of the Middle Atlas with our bespoke selection of wellness rituals, cultural encounters, and exclusive mountain adventures.",
       categories: {
         all: "All Experiences",
         spa: "Spa & Hammam",
@@ -70,7 +70,7 @@ const translations = {
     restaurants: {
       heading: "Fine Dining",
       subtext:
-        "From rooftop terraces overlooking the medina to intimate courtyard tables — every meal is a ceremony.",
+        "From rooftop terraces overlooking the Middle Atlas to intimate courtyard tables — every meal is a ceremony celebrating Amazigh flavors.",
       reserveTable: "Reserve a Table",
       makeReservation: "Make a Reservation",
       date: "Date",
@@ -89,7 +89,7 @@ const translations = {
     gallery: {
       heading: "Gallery",
       subtext:
-        "A visual journey through the exquisite details, lush courtyards, and quiet opulence of Hotel Le Berbère.",
+        "A visual journey through the exquisite details, mountain landscapes, and quiet opulence of Hotel Le Berbère.",
       categories: {
         all: "All Images",
         rooms: "Residences",
@@ -101,36 +101,36 @@ const translations = {
     },
 
     about: {
-      heading: "Our Heritage",
-      eyebrow: "A Century of Elegance",
-      builtRestored: "Built in 1923. Restored in 2019.",
+      heading: "Our Story",
+      eyebrow: "Born from the Atlas",
+      builtRestored: "A new chapter. A timeless spirit.",
       storyPara1:
-        "Hotel Le Berbère began as the private residence of a prominent silk merchant. For decades, its heavy cedar doors shielded a sanctuary of quiet beauty from the bustling medina outside.",
+        "Hotel Le Berbère was born from a deep respect for the Amazigh people and the breathtaking landscape of the Middle Atlas. Nestled in the heart of Khénifra — a city whose identity is inseparable from Amazigh culture — we set out to create a space where authenticity and modern comfort exist in perfect harmony.",
       storyPara2:
-        "When we acquired the property in 2017, our mission was simple: preserve the soul of the riad while elevating it to meet the expectations of the modern luxury traveler. We spent two years working exclusively with local artisans — master carvers, zellige tile layers, and tadelakt plasterers — to restore every inch of the estate by hand.",
+        "Recently opened, we are a boutique hotel with a clear purpose: to offer guests a genuine experience of this region. Every corner of the hotel reflects the artistry, warmth, and resilience of the Amazigh heritage — from hand-woven Berber rugs and carved cedar wood to the warm welcome that defines our hospitality.",
       philosophyEyebrow: "Our Philosophy",
       philosophyQuote:
-        '"True luxury is not loud. It is the texture of hand-woven linen, the scent of orange blossoms in the courtyard, and the feeling that time itself has decided to slow down."',
-      sustainabilityHeading: "Sustainability Commitment",
+        '"Real luxury is being exactly where you are — breathing cedar mountain air, listening to the Oum Er-Rbia river, and feeling at home among people who take pride in sharing their culture."',
+      sustainabilityHeading: "Rooted in the Region",
       sustainabilityBody:
-        "Our connection to the Atlas Mountains and the vibrant city of Marrakech comes with a responsibility to protect them. Hotel Le Berbère is a zero-single-use-plastic property. Our kitchens source 90% of ingredients from organic farms within a 50-kilometer radius, and our bath amenities are crafted locally using sustainably harvested argan oil and indigenous botanicals.",
-      stat1: "Zero Single-Use Plastic",
-      stat2: "Solar Water Heating",
-      stat3: "Community Artisan Support",
+        "We believe in giving back to Khénifra and the Middle Atlas. Our kitchen works with local farmers and producers from the region. Our artisan furnishings are sourced from Amazigh craftspeople. We partner with local guides for all our excursions — because every dirham spent here should benefit the community that makes this place so special.",
+      stat1: "Locally Sourced Cuisine",
+      stat2: "Amazigh Artisan Crafted",
+      stat3: "Community First",
     },
 
     contact: {
       heading: "Contact & Location",
       subtext:
-        "Whether you require a reservation, transportation from the airport, or assistance crafting a personalized itinerary, our dedicated team is at your service.",
+        "Whether you require a reservation, transportation, or assistance crafting a personalized itinerary in the Middle Atlas, our dedicated team is at your service.",
       address: "Address",
       telephone: "Telephone",
       emailLabel: "Email",
       reception: "Reception",
       available24: "Available 24 hours",
-      conciergeHeading: "Les Clefs d'Or Concierge",
+      conciergeHeading: "Concierge Services",
       conciergeBody:
-        "Our concierge desk can arrange VIP airport transfers, private Medina tours, exclusive access to historical sites, and hard-to-get restaurant reservations.",
+        "Our team can arrange airport and city transfers, private Middle Atlas mountain tours, guided visits to Amazigh cultural sites, and curated local dining recommendations.",
       requestService: "Request Service Menu",
       formHeading: "Send an Enquiry",
       yourName: "Your Name",
@@ -142,7 +142,7 @@ const translations = {
       send: "Send Enquiry",
       sending: "Sending...",
       inquirySent: "Inquiry Sent",
-      conciergeContact: "Our concierge team will contact you shortly.",
+      conciergeContact: "Our team will contact you shortly.",
       failedSend: "Failed to Send",
       tryAgain: "Please try again or contact us directly via phone.",
     },
@@ -183,7 +183,7 @@ const translations = {
 
     footer: {
       tagline:
-        "Where old-world Moroccan craftsmanship meets modern luxury. A sanctuary in the foothills of the Atlas Mountains.",
+        "A boutique luxury hotel rooted in Amazigh culture and the wild beauty of the Middle Atlas, Khénifra.",
       explore: "Explore",
       suites: "Suites & Rooms",
       experiences: "Experiences",
@@ -193,7 +193,7 @@ const translations = {
       contact: "Contact",
       journal: "The Journal",
       journalSub:
-        "Subscribe to receive updates on exclusive offers, cultural events, and new culinary experiences.",
+        "Subscribe to receive updates on exclusive offers, local events, and new experiences at Hotel Le Berbère.",
       emailPlaceholder: "Email Address",
       join: "Join",
       subscribedTitle: "Subscribed Successfully",
@@ -224,16 +224,16 @@ const translations = {
       heroEyebrow: "Bienvenue à l'Oasis",
       heroHeading: "Là où le Temps S'arrête",
       heroSubtext:
-        "Découvrez un sanctuaire d'opulence tranquille, de zellige posé à la main et de lumière dorée de lanternes au cœur de Marrakech.",
+        "Découvrez un sanctuaire d'héritage amazigh, d'air de montagne de cèdre et de chaleur humaine au cœur du Moyen Atlas, Khénifra.",
       suitesHeading: "Suites Signature",
       suitesSubtext:
-        "Des résidences conçues pour les voyageurs les plus exigeants, dotées de cours privées et d'une artisanat sur mesure.",
+        "Des résidences conçues pour les voyageurs les plus exigeants, dotées de cours privées et d'un artisanat sur mesure.",
       discoverSuite: "Découvrir la Suite",
       viewAllRooms: "Voir Toutes les Chambres",
       wellnessEyebrow: "Sanctuaire du Bien-être",
       wellnessHeading: "Le Royal Hammam",
       wellnessBody:
-        "Abandonnez-vous aux anciens rituels marocains dans notre sanctuaire souterrain en marbre. Infusées d'eucalyptus, de savon noir et d'huile d'argan pure, nos expériences spa sont conçues pour purifier le corps et l'âme.",
+        "Abandonnez-vous aux anciens rituels amazighs dans notre sanctuaire hammam. Infusées d'huile de cèdre, de savon noir et d'argan pur de l'Atlas, nos expériences spa sont conçues pour purifier le corps et l'âme.",
       exploreSpa: "Explorer le Menu Spa",
       guestBook: "Livre d'Or",
     },
@@ -241,7 +241,7 @@ const translations = {
     rooms: {
       heading: "Suites & Chambres",
       subtext:
-        "Chacune de nos résidences est unique, alliant artisanat marocain authentique, mobilier ancien et équipements modernes pour un confort ultime.",
+        "Chacune de nos résidences est unique, alliant artisanat amazigh authentique, textiles tissés à la main et équipements modernes pour un confort ultime.",
       categories: {
         all: "Toutes les Résidences",
         "riad-suite": "Suites Riad",
@@ -260,7 +260,7 @@ const translations = {
     experiences: {
       heading: "Expériences sur Mesure",
       subtext:
-        "Plongez dans la magie de Marrakech avec notre sélection exclusive de rituels bien-être, de rencontres culturelles et d'aventures uniques.",
+        "Plongez dans la magie du Moyen Atlas avec notre sélection exclusive de rituels bien-être, de rencontres culturelles et d'aventures en montagne.",
       categories: {
         all: "Toutes les Expériences",
         spa: "Spa & Hammam",
@@ -276,7 +276,7 @@ const translations = {
     restaurants: {
       heading: "Gastronomie",
       subtext:
-        "Des terrasses panoramiques sur la médina aux tables intimes dans les cours — chaque repas est une cérémonie.",
+        "Des terrasses panoramiques sur le Moyen Atlas aux tables intimes dans les cours — chaque repas célèbre les saveurs amazighes.",
       reserveTable: "Réserver une Table",
       makeReservation: "Faire une Réservation",
       date: "Date",
@@ -295,7 +295,7 @@ const translations = {
     gallery: {
       heading: "Galerie",
       subtext:
-        "Un voyage visuel à travers les détails exquis, les cours verdoyantes et la douce opulence de l'Hôtel Le Berbère.",
+        "Un voyage visuel à travers les détails exquis, les paysages de montagne et la douce opulence de l'Hôtel Le Berbère.",
       categories: {
         all: "Toutes les Images",
         rooms: "Résidences",
@@ -307,36 +307,36 @@ const translations = {
     },
 
     about: {
-      heading: "Notre Héritage",
-      eyebrow: "Un Siècle d'Élégance",
-      builtRestored: "Construit en 1923. Restauré en 2019.",
+      heading: "Notre Histoire",
+      eyebrow: "Né de l'Atlas",
+      builtRestored: "Un nouveau chapitre. Un esprit intemporel.",
       storyPara1:
-        "L'Hôtel Le Berbère fut la résidence privée d'un éminent marchand de soie. Pendant des décennies, ses lourdes portes en cèdre protégeaient un sanctuaire de beauté tranquille de l'agitation de la médina.",
+        "L'Hôtel Le Berbère est né d'un profond respect pour le peuple amazigh et le paysage spectaculaire du Moyen Atlas. Niché au cœur de Khénifra — une ville dont l'identité est indissociable de la culture amazighe — nous avons voulu créer un espace où authenticité et confort moderne coexistent en parfaite harmonie.",
       storyPara2:
-        "Lorsque nous avons acquis la propriété en 2017, notre mission était simple : préserver l'âme du riad tout en l'élevant aux attentes du voyageur de luxe moderne. Nous avons passé deux ans à travailler exclusivement avec des artisans locaux — sculpteurs, poseurs de zellige et plâtriers en tadelakt — pour restaurer chaque centimètre de la demeure à la main.",
+        "Récemment ouvert, nous sommes un hôtel boutique avec une mission claire : offrir aux hôtes une expérience authentique de cette région. Chaque recoin de l'hôtel reflète l'art, la chaleur et la résilience du patrimoine amazigh — des tapis berbères tissés à la main au bois de cèdre sculpté, en passant par l'accueil chaleureux qui définit notre hospitalité.",
       philosophyEyebrow: "Notre Philosophie",
       philosophyQuote:
-        "« Le vrai luxe n'est pas dans l'ostentation. Il est dans la texture du lin tissé à la main, le parfum des fleurs d'oranger dans la cour, et la sensation que le temps lui-même a décidé de ralentir. »",
-      sustainabilityHeading: "Notre Engagement Durable",
+        "« Le vrai luxe, c'est d'être exactement là où l'on est — respirer l'air de cèdre des montagnes, écouter l'Oum Er-Rbia et se sentir chez soi parmi des gens fiers de partager leur culture. »",
+      sustainabilityHeading: "Ancrés dans la Région",
       sustainabilityBody:
-        "Notre lien avec les montagnes de l'Atlas et la ville de Marrakech s'accompagne d'une responsabilité de les protéger. L'Hôtel Le Berbère est une propriété zéro plastique à usage unique. Nos cuisines s'approvisionnent à 90 % auprès de fermes biologiques situées dans un rayon de 50 kilomètres, et nos soins de bain sont fabriqués localement à partir d'huile d'argan récoltée durablement.",
-      stat1: "Zéro Plastique à Usage Unique",
-      stat2: "Chauffage Solaire de l'Eau",
-      stat3: "Soutien aux Artisans Locaux",
+        "Nous croyons au développement de Khénifra et du Moyen Atlas. Notre cuisine travaille avec des agriculteurs et producteurs locaux. Nos meubles artisanaux proviennent d'artisans amazighs. Nous collaborons avec des guides locaux pour toutes nos excursions — car chaque dirham dépensé ici doit bénéficier à la communauté qui rend cet endroit si spécial.",
+      stat1: "Cuisine Locale",
+      stat2: "Artisanat Amazigh",
+      stat3: "Communauté d'abord",
     },
 
     contact: {
       heading: "Contact & Localisation",
       subtext:
-        "Que vous ayez besoin d'une réservation, d'un transfert depuis l'aéroport ou d'une assistance pour un itinéraire personnalisé, notre équipe dédiée est à votre disposition.",
+        "Que vous ayez besoin d'une réservation, d'un transfert ou d'assistance pour un itinéraire personnalisé dans le Moyen Atlas, notre équipe est à votre disposition.",
       address: "Adresse",
       telephone: "Téléphone",
       emailLabel: "E-mail",
       reception: "Réception",
       available24: "Disponible 24h/24",
-      conciergeHeading: "Concierge Les Clefs d'Or",
+      conciergeHeading: "Services Conciergerie",
       conciergeBody:
-        "Notre concierge peut organiser des transferts VIP, des visites privées de la Médina, un accès exclusif à des sites historiques et des réservations dans les meilleurs restaurants.",
+        "Notre équipe peut organiser des transferts, des visites privées des montagnes du Moyen Atlas, des excursions vers des sites culturels amazighs et des recommandations de restaurants locaux.",
       requestService: "Demander le Menu de Services",
       formHeading: "Envoyer une Demande",
       yourName: "Votre Nom",
@@ -348,7 +348,7 @@ const translations = {
       send: "Envoyer",
       sending: "Envoi en cours...",
       inquirySent: "Demande Envoyée",
-      conciergeContact: "Notre équipe de concierge vous contactera sous peu.",
+      conciergeContact: "Notre équipe vous contactera sous peu.",
       failedSend: "Échec de l'Envoi",
       tryAgain: "Veuillez réessayer ou nous contacter directement par téléphone.",
     },
@@ -389,7 +389,7 @@ const translations = {
 
     footer: {
       tagline:
-        "Où l'artisanat marocain d'antan rencontre le luxe moderne. Un sanctuaire au pied des montagnes de l'Atlas.",
+        "Un hôtel boutique de luxe ancré dans la culture amazighe et la beauté sauvage du Moyen Atlas, Khénifra.",
       explore: "Explorer",
       suites: "Suites & Chambres",
       experiences: "Expériences",
@@ -399,7 +399,7 @@ const translations = {
       contact: "Contact",
       journal: "Le Journal",
       journalSub:
-        "Abonnez-vous pour recevoir des informations sur nos offres exclusives, événements culturels et nouvelles expériences culinaires.",
+        "Abonnez-vous pour recevoir des informations sur nos offres exclusives, événements locaux et nouvelles expériences.",
       emailPlaceholder: "Adresse E-mail",
       join: "S'abonner",
       subscribedTitle: "Abonnement Réussi",

@@ -1,4 +1,4 @@
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import { Switch, Route, Router as WouterRouter, Redirect } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -15,28 +15,47 @@ import About from "@/pages/about";
 import Contact from "@/pages/contact";
 import Book from "@/pages/book";
 import Admin from "@/pages/admin";
+import AdminLogin from "@/pages/admin-login";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
 
+function isAdminAuthenticated() {
+  return !!sessionStorage.getItem("admin_token");
+}
+
+function ProtectedAdmin({ params }: { params?: { tab?: string } }) {
+  if (!isAdminAuthenticated()) {
+    return <Redirect to="/admin/login" />;
+  }
+  return <Admin params={params} />;
+}
+
 function Router() {
   return (
-    <Layout>
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/rooms" component={Rooms} />
-        <Route path="/rooms/:id" component={RoomDetail} />
-        <Route path="/experiences" component={Experiences} />
-        <Route path="/restaurants" component={Restaurants} />
-        <Route path="/gallery" component={Gallery} />
-        <Route path="/about" component={About} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/book" component={Book} />
-        <Route path="/admin" component={Admin} />
-        <Route path="/admin/:tab" component={Admin} />
-        <Route component={NotFound} />
-      </Switch>
-    </Layout>
+    <Switch>
+      <Route path="/admin/login" component={AdminLogin} />
+      <Route path="/admin/:tab" component={ProtectedAdmin} />
+      <Route path="/admin">
+        {() => <ProtectedAdmin />}
+      </Route>
+      <Route>
+        <Layout>
+          <Switch>
+            <Route path="/" component={Home} />
+            <Route path="/rooms" component={Rooms} />
+            <Route path="/rooms/:id" component={RoomDetail} />
+            <Route path="/experiences" component={Experiences} />
+            <Route path="/restaurants" component={Restaurants} />
+            <Route path="/gallery" component={Gallery} />
+            <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/book" component={Book} />
+            <Route component={NotFound} />
+          </Switch>
+        </Layout>
+      </Route>
+    </Switch>
   );
 }
 

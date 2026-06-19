@@ -1,6 +1,7 @@
-import { Router, type IRouter } from "express";
+import { Router, type IRouter, type Request, type Response, type NextFunction } from "express";
 import { eq, count, sum, avg } from "drizzle-orm";
 import { db, roomsTable, bookingsTable } from "@workspace/db";
+import { createHash, randomBytes } from "node:crypto";
 import {
   GetAdminStatsResponse,
   GetOccupancyByMonthQueryParams,
@@ -17,6 +18,28 @@ import {
 } from "@workspace/api-zod";
 
 const router: IRouter = Router();
+
+const ADMIN_PASSWORD = process.env["ADMIN_PASSWORD"] ?? "berbere2024";
+const validTokens = new Set<string>();
+
+router.post("/admin/login", (req: Request, res: Response): void => {
+  const { password } = req.body as { password?: string };
+  if (!password || password !== ADMIN_PASSWORD) {
+    res.status(401).json({ error: "Invalid password" });
+    return;
+  }
+  const token = randomBytes(32).toString("hex");
+  validTokens.add(token);
+  res.json({ token });
+});
+
+router.post("/admin/logout", (req: Request, res: Response): void => {
+  const auth = req.headers["authorization"];
+  if (auth?.startsWith("Bearer ")) {
+    validTokens.delete(auth.slice(7));
+  }
+  res.json({ ok: true });
+});
 
 const MONTH_NAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 

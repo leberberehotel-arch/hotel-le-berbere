@@ -1,0 +1,105 @@
+You are a senior full-stack developer. Update my hotel website with the following changes. Keep the design luxury, dark theme, gold accents, and do not break existing UI.
+
+1. Location & Contact Updates
+Replace every occurrence of “Marrakech” with “Khénifra”
+Update Google Maps link everywhere to:
+https://maps.app.goo.gl/nBD9bTVcDCfA23ss7
+Replace full address everywhere with:
+
+W8HJ+R7J, Hay Pam, près du Lycée Abou El Kacem Zayani
+Khénifra 54000
+Province de Khénifra
+Maroc
+
+Update email everywhere to:
+leberberehotel@gmail.com
+2. About Section (IMPORTANT)
+
+Remove any fake or placeholder sections such as:
+
+“Experiences”
+“Dining”
+
+Rewrite the About section with a realistic description:
+
+Focus:
+
+Amazigh culture and identity
+Khénifra / Middle Atlas region heritage
+Local traditions, nature, mountains, authenticity
+Boutique hotel atmosphere
+Warm hospitality style
+
+IMPORTANT RULES:
+
+Do NOT exaggerate history
+The hotel is recently opened (only a short time ago)
+Keep tone honest, modern, and premium
+No fake legacy or long historical claims
+3. UI / LAYOUT FIX (CRITICAL)
+
+Fix the large empty black space between:
+
+booking/search bar (hero section)
+AND
+“Signature Suites” section
+
+Tasks:
+
+Reduce excessive margin/padding/min-height in that area
+Move “Signature Suites” closer to booking bar
+Keep luxury dark aesthetic intact
+Ensure smooth visual transition between sections
+Do NOT change colors, fonts, or design style
+Must work on desktop and mobile
+4. ROOMS SYSTEM (DYNAMIC MANAGEMENT)
+
+Create a dynamic room management system so admin can:
+
+Add new rooms
+Edit room name, price, images, description
+Update availability status (available / booked / maintenance)
+Delete rooms
+
+Requirements:
+
+Rooms should NOT be fully hardcoded if possible
+Render dynamically from a data source (JSON, DB, or backend API)
+5. ADMIN PANEL (SECURE ACCESS)
+
+Create a secure admin panel with login.
+
+Features:
+
+Admin login page
+Only admin can access dashboard
+Protect routes (no public access)
+
+Admin dashboard features:
+
+Manage rooms (CRUD: create, read, update, delete)
+Change availability status
+Upload/edit room images and details
+
+Security:
+
+Do NOT allow normal users to access admin routes
+Use simple but secure authentication (session or token-based)
+6. GENERAL RULES
+DO NOT redesign the website
+DO NOT change colors, typography, or luxury styling
+ONLY:
+fix spacing issue
+update content
+add admin system
+add room management
+Keep UI elegant, premium, minimal
+FINAL GOAL
+
+Transform the website into a luxury hotel site for “Le Berbère Hotel” in Khénifra with:
+
+Correct address, email, and map
+Honest Amazigh / Khénifra cultural description
+Clean spacing (no empty black gap)
+Functional dynamic room system
+Secure admin panel for full control
