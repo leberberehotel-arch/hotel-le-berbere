@@ -1,0 +1,208 @@
+I want you to modify my hotel website professionally. Please inspect the whole project first: HTML, CSS, JavaScript, routes/pages, admin panel, newsletter form, navigation, translations, and room/guest sections.
+
+IMPORTANT:
+Do not destroy the current luxury hotel style. Keep the black/gold elegant theme, the serif typography, the luxury atmosphere, and the responsive design. Improve the structure only where needed.
+
+TASK 1 — Fix the big black empty space
+The previous fix did not work. Please find the real cause of the huge black empty vertical space between the top/booking/hero area and the “Signature Suites” or rooms section.
+Inspect the actual CSS classes and layout, not only generic classes.
+Reduce the empty black space dramatically.
+The layout should feel compact, balanced, luxurious, and professional.
+Check these possible causes:
+- section padding
+- margin-top / margin-bottom
+- min-height: 100vh
+- height: 100vh
+- large spacer divs
+- hero overlay height
+- booking bar positioning
+- transform translateY
+- rooms section padding
+- viewport-based heights
+Make the spacing look good on desktop and mobile.
+
+TASK 2 — Remove navigation items
+Remove the “Experiences” tab completely from the website navigation.
+Remove the “Dining” tab completely from the website navigation.
+I do not want to see them anymore in the header, mobile menu, footer links, or anywhere as main pages.
+If there are pages/routes for Experiences and Dining, keep the files if needed but make sure they are not visible in the navigation.
+The main navigation should be:
+Home
+Rooms
+Gallery
+About
+Contact
+Book Now
+Français / language button
+
+TASK 3 — Give me full admin panel control
+Improve the admin panel so I can control the website content myself.
+I want to be able to:
+- edit hotel name
+- edit navigation labels
+- hide/show sections
+- edit hero title, subtitle, and background image
+- edit room cards: title, category, description, image, price, featured badge
+- add a new room
+- delete a room
+- edit guest reviews
+- add guest reviews
+- delete guest reviews
+- edit gallery images
+- add gallery images
+- delete gallery images
+- edit About section text
+- edit Contact information
+- edit footer content
+- manage newsletter subscribers
+- export newsletter subscribers as CSV if possible
+
+Use simple local storage or a lightweight database if the project already has one.
+If no backend exists, use localStorage first so the admin panel works immediately.
+Make the admin panel simple, clean, and realistic.
+Add clear buttons: Add, Edit, Save, Delete, Hide, Show.
+All changes from the admin panel should appear on the public website.
+
+TASK 4 — Newsletter email system
+There is a newsletter subscription form.
+When someone writes their email and subscribes, I want:
+1. Save the email in the admin panel subscribers list.
+2. Show a professional success message.
+3. Send a welcome email to the subscriber if backend/email configuration is available.
+
+Important:
+If this is a static frontend only, do not fake email sending.
+Instead, prepare the code properly with a backend API endpoint, for example:
+POST /api/newsletter
+The endpoint should:
+- validate the email
+- save the email
+- send a welcome email using an email provider if environment variables are configured
+
+Use environment variables like:
+EMAIL_USER
+EMAIL_PASS
+NEWSLETTER_FROM
+
+If Replit cannot send real emails without credentials, leave a clear comment explaining where I add my email provider credentials.
+The welcome email should look luxurious and professional.
+
+Suggested email content:
+Subject: Welcome to Hotel Le Berbère
+Body:
+Dear Guest,
+
+Thank you for subscribing to the Hotel Le Berbère journal.
+
+You will now receive our latest stories, exclusive stays, cultural experiences, and special offers inspired by Moroccan and Amazigh hospitality.
+
+With warm regards,
+Hotel Le Berbère
+
+TASK 5 — Realistic multilingual guest reviews
+Add a realistic guest review section.
+I want the reviews to feel real, not AI-generated.
+Guests should write in different languages:
+- Darija / Moroccan Arabic written in Latin letters
+- English
+- Spanish
+- French
+
+Some reviews should have small natural mistakes, like real guests write online.
+Do not make all reviews perfect.
+Do not make them too long.
+Make them varied: some short, some emotional, some detailed.
+
+Examples of realistic reviews:
+1. Darija:
+“Hotel zwine بزاف, l’ambiance calme w staff kay3awnok. Ghir breakfast kan khaso ykoun shwiya aktar.”
+2. English:
+“Beautiful place, very calm and elegant. The room was clean and the service was really kind. I would come back again.”
+3. Spanish:
+“El hotel es muy bonito y tranquilo. La decoración tiene un estilo marroquí elegante. El personal muy amable, gracias.”
+4. French:
+“Très bel hôtel, ambiance raffinée et reposante. La chambre était propre et le personnel très accueillant.”
+
+Add reviews with:
+- guest name
+- country
+- language
+- rating
+- review text
+- date
+- room stayed in
+
+Make the reviews editable from the admin panel.
+
+TASK 6 — Spanish translation button
+I already have a French button. I also want a Spanish translation option.
+Add a button called “Español” or a language selector with:
+English
+Français
+Español
+
+When the user selects Spanish, translate the visible website text into Spanish:
+- navigation
+- hero titles
+- buttons
+- rooms section
+- booking form
+- room categories
+- contact section
+- footer
+- newsletter text
+- guest reviews section labels
+
+Important:
+Do not translate hotel name “Hotel Le Berbère”.
+Do not break the layout.
+Keep all translations elegant and hotel-appropriate.
+
+Spanish examples:
+Home = Inicio
+Rooms = Habitaciones
+Gallery = Galería
+About = Sobre nosotros
+Contact = Contacto
+Book Now = Reservar ahora
+Suites & Rooms = Suites y Habitaciones
+Check Availability = Ver disponibilidad
+Subscribe = Suscribirse
+Guest Reviews = Opiniones de huéspedes
+
+TASK 7 — Booking and room page realism
+Make the rooms page feel like a real luxury hotel website.
+Each room card should have:
+- image
+- category
+- title
+- short description
+- price per night
+- capacity
+- bed type
+- view type
+- amenities
+- “View Details” button
+- “Book Now” button
+
+TASK 8 — Final check
+After finishing, test:
+- desktop layout
+- mobile layout
+- navigation without Experiences and Dining
+- big black space fixed
+- admin panel editing works
+- rooms can be added/edited/deleted
+- reviews can be added/edited/deleted
+- newsletter email is saved
+- Spanish translation works
+- French translation still works
+- no broken links
+- no console errors
+
+After making the changes, tell me exactly:
+1. Which files you edited.
+2. Which CSS classes caused the black space.
+3. How to access the admin panel.
+4. How to configure real email sending.
+5. How to add/edit/remove rooms and reviews.

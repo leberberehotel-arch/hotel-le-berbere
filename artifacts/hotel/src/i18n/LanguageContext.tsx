@@ -4,6 +4,7 @@ import translations, { type Language, type Translations } from "./translations";
 interface LanguageContextValue {
   lang: Language;
   t: Translations;
+  setLang: (l: Language) => void;
   toggle: () => void;
 }
 
@@ -11,10 +12,10 @@ const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Language>("en");
-  const toggle = () => setLang((l) => (l === "en" ? "fr" : "en"));
+  const toggle = () => setLang((l) => (l === "en" ? "fr" : l === "fr" ? "es" : "en"));
 
   return (
-    <LanguageContext.Provider value={{ lang, t: translations[lang], toggle }}>
+    <LanguageContext.Provider value={{ lang, t: translations[lang], setLang, toggle }}>
       {children}
     </LanguageContext.Provider>
   );

@@ -1,19 +1,15 @@
-export type Language = "en" | "fr";
+export type Language = "en" | "fr" | "es";
 
 const translations = {
   en: {
     nav: {
       home: "Home",
       rooms: "Rooms",
-      experiences: "Experiences",
-      dining: "Dining",
       gallery: "Gallery",
       about: "About",
       contact: "Contact",
       bookNow: "Book Now",
     },
-    langSwitcher: "Français",
-
     home: {
       heroEyebrow: "Welcome to the Oasis",
       heroHeading: "Where Time Stands Still",
@@ -29,9 +25,8 @@ const translations = {
       wellnessBody:
         "Surrender to ancient Amazigh rituals in our serene hammam sanctuary. Infused with cedar oil, black soap, and pure argan from the Atlas, our wellness experiences are designed to purify both body and soul.",
       exploreSpa: "Explore Spa Menu",
-      guestBook: "Guest Book",
+      guestBook: "Guest Reviews",
     },
-
     rooms: {
       heading: "Suites & Rooms",
       subtext:
@@ -47,10 +42,12 @@ const translations = {
       perNight: "/ night",
       guests: "guests",
       sqm: "sqm",
-      viewSuite: "View Suite",
+      viewSuite: "View Details",
+      bookSuiteBtn: "Book Now",
       noRooms: "No rooms available in this category.",
+      bedType: "Bed",
+      capacity: "Up to",
     },
-
     experiences: {
       heading: "Curated Experiences",
       subtext:
@@ -66,7 +63,6 @@ const translations = {
       perPerson: "per person",
       noExperiences: "No experiences found.",
     },
-
     restaurants: {
       heading: "Fine Dining",
       subtext:
@@ -85,7 +81,6 @@ const translations = {
       reservationFailed: "Reservation Failed",
       tryAgain: "Please try again or contact the concierge.",
     },
-
     gallery: {
       heading: "Gallery",
       subtext:
@@ -99,7 +94,6 @@ const translations = {
         lifestyle: "Lifestyle",
       },
     },
-
     about: {
       heading: "Our Story",
       eyebrow: "Born from the Atlas",
@@ -118,7 +112,6 @@ const translations = {
       stat2: "Amazigh Artisan Crafted",
       stat3: "Community First",
     },
-
     contact: {
       heading: "Contact & Location",
       subtext:
@@ -146,7 +139,6 @@ const translations = {
       failedSend: "Failed to Send",
       tryAgain: "Please try again or contact us directly via phone.",
     },
-
     booking: {
       heading: "Reserve Your Stay",
       checkIn: "Check-in Date",
@@ -180,14 +172,11 @@ const translations = {
       available: "Available",
       notAvailable: "Not Available",
     },
-
     footer: {
       tagline:
         "A boutique luxury hotel rooted in Amazigh culture and the wild beauty of the Middle Atlas, Khénifra.",
       explore: "Explore",
       suites: "Suites & Rooms",
-      experiences: "Experiences",
-      fineDining: "Fine Dining",
       gallery: "Gallery",
       ourStory: "Our Story",
       contact: "Contact",
@@ -211,15 +200,11 @@ const translations = {
     nav: {
       home: "Accueil",
       rooms: "Chambres",
-      experiences: "Expériences",
-      dining: "Gastronomie",
       gallery: "Galerie",
       about: "À Propos",
       contact: "Contact",
       bookNow: "Réserver",
     },
-    langSwitcher: "English",
-
     home: {
       heroEyebrow: "Bienvenue à l'Oasis",
       heroHeading: "Là où le Temps S'arrête",
@@ -235,9 +220,8 @@ const translations = {
       wellnessBody:
         "Abandonnez-vous aux anciens rituels amazighs dans notre sanctuaire hammam. Infusées d'huile de cèdre, de savon noir et d'argan pur de l'Atlas, nos expériences spa sont conçues pour purifier le corps et l'âme.",
       exploreSpa: "Explorer le Menu Spa",
-      guestBook: "Livre d'Or",
+      guestBook: "Avis des Clients",
     },
-
     rooms: {
       heading: "Suites & Chambres",
       subtext:
@@ -253,10 +237,12 @@ const translations = {
       perNight: "/ nuit",
       guests: "voyageurs",
       sqm: "m²",
-      viewSuite: "Voir la Suite",
+      viewSuite: "Voir Détails",
+      bookSuiteBtn: "Réserver",
       noRooms: "Aucune chambre disponible dans cette catégorie.",
+      bedType: "Lit",
+      capacity: "Jusqu'à",
     },
-
     experiences: {
       heading: "Expériences sur Mesure",
       subtext:
@@ -272,7 +258,6 @@ const translations = {
       perPerson: "par personne",
       noExperiences: "Aucune expérience trouvée.",
     },
-
     restaurants: {
       heading: "Gastronomie",
       subtext:
@@ -291,7 +276,6 @@ const translations = {
       reservationFailed: "Réservation Échouée",
       tryAgain: "Veuillez réessayer ou contacter le concierge.",
     },
-
     gallery: {
       heading: "Galerie",
       subtext:
@@ -305,7 +289,6 @@ const translations = {
         lifestyle: "Art de Vivre",
       },
     },
-
     about: {
       heading: "Notre Histoire",
       eyebrow: "Né de l'Atlas",
@@ -324,7 +307,6 @@ const translations = {
       stat2: "Artisanat Amazigh",
       stat3: "Communauté d'abord",
     },
-
     contact: {
       heading: "Contact & Localisation",
       subtext:
@@ -352,7 +334,6 @@ const translations = {
       failedSend: "Échec de l'Envoi",
       tryAgain: "Veuillez réessayer ou nous contacter directement par téléphone.",
     },
-
     booking: {
       heading: "Réserver votre Séjour",
       checkIn: "Date d'Arrivée",
@@ -386,14 +367,11 @@ const translations = {
       available: "Disponible",
       notAvailable: "Non Disponible",
     },
-
     footer: {
       tagline:
         "Un hôtel boutique de luxe ancré dans la culture amazighe et la beauté sauvage du Moyen Atlas, Khénifra.",
       explore: "Explorer",
       suites: "Suites & Chambres",
-      experiences: "Expériences",
-      fineDining: "Gastronomie",
       gallery: "Galerie",
       ourStory: "Notre Histoire",
       contact: "Contact",
@@ -409,6 +387,201 @@ const translations = {
       rights: `© ${new Date().getFullYear()} Hôtel Le Berbère. Tous droits réservés.`,
       privacy: "Politique de Confidentialité",
       terms: "Conditions d'Utilisation",
+      admin: "Admin",
+    },
+  },
+
+  es: {
+    nav: {
+      home: "Inicio",
+      rooms: "Habitaciones",
+      gallery: "Galería",
+      about: "Sobre Nosotros",
+      contact: "Contacto",
+      bookNow: "Reservar Ahora",
+    },
+    home: {
+      heroEyebrow: "Bienvenido al Oasis",
+      heroHeading: "Donde el Tiempo Se Detiene",
+      heroSubtext:
+        "Descubra un santuario de herencia amazigh, aire de montaña de cedro y cálida hospitalidad en el corazón del Medio Atlas, Khénifra.",
+      suitesHeading: "Suites Exclusivas",
+      suitesSubtext:
+        "Residencias diseñadas para los viajeros más exigentes, con patios privados y artesanía exclusiva.",
+      discoverSuite: "Descubrir Suite",
+      viewAllRooms: "Ver Todas las Habitaciones",
+      wellnessEyebrow: "Santuario de Bienestar",
+      wellnessHeading: "El Royal Hammam",
+      wellnessBody:
+        "Abandónese a los antiguos rituales amazigh en nuestro sereno santuario hammam. Con aceite de cedro, jabón negro y argán puro del Atlas, nuestras experiencias de bienestar están diseñadas para purificar cuerpo y alma.",
+      exploreSpa: "Explorar el Menú Spa",
+      guestBook: "Opiniones de Huéspedes",
+    },
+    rooms: {
+      heading: "Suites y Habitaciones",
+      subtext:
+        "Cada una de nuestras residencias es única, con artesanía amazigh auténtica, textiles tejidos a mano y comodidades modernas para el máximo confort.",
+      categories: {
+        all: "Todas las Residencias",
+        "riad-suite": "Suites Riad",
+        "grand-suite": "Grandes Suites",
+        "deluxe-room": "Habitaciones Deluxe",
+        "royal-pavilion": "Pabellones Reales",
+      },
+      from: "Desde",
+      perNight: "/ noche",
+      guests: "huéspedes",
+      sqm: "m²",
+      viewSuite: "Ver Detalles",
+      bookSuiteBtn: "Reservar",
+      noRooms: "No hay habitaciones disponibles en esta categoría.",
+      bedType: "Cama",
+      capacity: "Hasta",
+    },
+    experiences: {
+      heading: "Experiencias a Medida",
+      subtext:
+        "Sumérjase en la magia del Medio Atlas con nuestra selección exclusiva de rituales de bienestar, encuentros culturales y aventuras en la montaña.",
+      categories: {
+        all: "Todas las Experiencias",
+        spa: "Spa & Hammam",
+        cultural: "Cultural",
+        dining: "Culinario",
+        tour: "Excursiones",
+      },
+      bookExperience: "Reservar Experiencia",
+      perPerson: "por persona",
+      noExperiences: "No se encontraron experiencias.",
+    },
+    restaurants: {
+      heading: "Gastronomía",
+      subtext:
+        "Desde terrazas con vistas al Medio Atlas hasta mesas íntimas en los patios — cada comida es una ceremonia que celebra los sabores amazigh.",
+      reserveTable: "Reservar una Mesa",
+      makeReservation: "Hacer una Reserva",
+      date: "Fecha",
+      time: "Hora",
+      guests: "Número de Comensales",
+      name: "Su Nombre",
+      email: "Correo Electrónico",
+      specialRequests: "Peticiones Especiales (opcional)",
+      confirm: "Confirmar Reserva",
+      reservationConfirmed: "Reserva Confirmada",
+      lookForward: "Esperamos darle la bienvenida.",
+      reservationFailed: "Reserva Fallida",
+      tryAgain: "Por favor, inténtelo de nuevo o contacte al concierge.",
+    },
+    gallery: {
+      heading: "Galería",
+      subtext:
+        "Un viaje visual por los detalles exquisitos, paisajes de montaña y la serena opulencia del Hotel Le Berbère.",
+      categories: {
+        all: "Todas las Imágenes",
+        rooms: "Residencias",
+        architecture: "Arquitectura",
+        dining: "Gastronomía",
+        spa: "Bienestar",
+        lifestyle: "Estilo de Vida",
+      },
+    },
+    about: {
+      heading: "Nuestra Historia",
+      eyebrow: "Nacido del Atlas",
+      builtRestored: "Un nuevo capítulo. Un espíritu atemporal.",
+      storyPara1:
+        "El Hotel Le Berbère nació de un profundo respeto por el pueblo amazigh y el impresionante paisaje del Medio Atlas. Enclavado en el corazón de Khénifra — una ciudad cuya identidad es inseparable de la cultura amazigh — quisimos crear un espacio donde la autenticidad y el confort moderno coexisten en perfecta armonía.",
+      storyPara2:
+        "Recientemente inaugurado, somos un hotel boutique con un propósito claro: ofrecer a los huéspedes una experiencia genuina de esta región. Cada rincón del hotel refleja el arte, la calidez y la resistencia del patrimonio amazigh — desde alfombras bereberes tejidas a mano y madera de cedro tallada hasta la cálida bienvenida que define nuestra hospitalidad.",
+      philosophyEyebrow: "Nuestra Filosofía",
+      philosophyQuote:
+        '"El verdadero lujo es estar exactamente donde estás — respirar el aire de cedro de la montaña, escuchar el río Oum Er-Rbia y sentirte en casa entre personas que se enorgullecen de compartir su cultura."',
+      sustainabilityHeading: "Arraigados en la Región",
+      sustainabilityBody:
+        "Creemos en contribuir al desarrollo de Khénifra y el Medio Atlas. Nuestra cocina trabaja con agricultores y productores locales. Nuestros muebles artesanales provienen de artesanos amazigh. Colaboramos con guías locales para todas nuestras excursiones — porque cada dírham gastado aquí debe beneficiar a la comunidad que hace este lugar tan especial.",
+      stat1: "Cocina Local",
+      stat2: "Artesanía Amazigh",
+      stat3: "Comunidad Primero",
+    },
+    contact: {
+      heading: "Contacto y Ubicación",
+      subtext:
+        "Si necesita una reserva, transporte o asistencia para elaborar un itinerario personalizado por el Medio Atlas, nuestro equipo está a su disposición.",
+      address: "Dirección",
+      telephone: "Teléfono",
+      emailLabel: "Correo",
+      reception: "Recepción",
+      available24: "Disponible las 24 horas",
+      conciergeHeading: "Servicios de Conserjería",
+      conciergeBody:
+        "Nuestro equipo puede organizar traslados, visitas privadas a las montañas del Medio Atlas, excursiones a sitios culturales amazigh y recomendaciones de restaurantes locales.",
+      requestService: "Solicitar Menú de Servicios",
+      formHeading: "Enviar una Consulta",
+      yourName: "Su Nombre",
+      yourEmail: "Correo Electrónico",
+      phone: "Teléfono (opcional)",
+      subject: "Asunto",
+      message: "Mensaje",
+      preferredContact: "Método de Contacto Preferido",
+      send: "Enviar Consulta",
+      sending: "Enviando...",
+      inquirySent: "Consulta Enviada",
+      conciergeContact: "Nuestro equipo le contactará en breve.",
+      failedSend: "Error al Enviar",
+      tryAgain: "Por favor, inténtelo de nuevo o contáctenos directamente por teléfono.",
+    },
+    booking: {
+      heading: "Reserve Su Estancia",
+      checkIn: "Fecha de Llegada",
+      checkOut: "Fecha de Salida",
+      guests: "Huéspedes",
+      guestCount: (n: number) => (n === 1 ? "1 Huésped" : `${n} Huéspedes`),
+      guestsPlus: "5+ Huéspedes",
+      checkAvailability: "Consultar Disponibilidad",
+      selectRoom: "Seleccione su Suite",
+      selectRoomSub: "Elija entre nuestras residencias disponibles para sus fechas.",
+      guestDetails: "Datos del Huésped",
+      firstName: "Nombre",
+      lastName: "Apellido",
+      email: "Correo Electrónico",
+      phone: "Número de Teléfono",
+      specialRequests: "Peticiones Especiales",
+      payment: "Pago",
+      cardNumber: "Número de Tarjeta",
+      expiry: "Vencimiento",
+      cvv: "CVV",
+      cardHolder: "Nombre del Titular",
+      confirmBook: "Confirmar y Reservar",
+      confirmed: "Reserva Confirmada",
+      confirmedMsg: "Esperamos darle la bienvenida al Hotel Le Berbère.",
+      confirmationCode: "Código de Confirmación",
+      returnHome: "Volver al Inicio",
+      nights: (n: number) => (n === 1 ? "1 noche" : `${n} noches`),
+      totalPrice: "Precio Total",
+      pricePerNight: "por noche",
+      bookSuite: "Reservar esta Suite",
+      available: "Disponible",
+      notAvailable: "No Disponible",
+    },
+    footer: {
+      tagline:
+        "Un hotel boutique de lujo arraigado en la cultura amazigh y la salvaje belleza del Medio Atlas, Khénifra.",
+      explore: "Explorar",
+      suites: "Suites y Habitaciones",
+      gallery: "Galería",
+      ourStory: "Nuestra Historia",
+      contact: "Contacto",
+      journal: "El Diario",
+      journalSub:
+        "Suscríbase para recibir actualizaciones sobre ofertas exclusivas, eventos locales y nuevas experiencias.",
+      emailPlaceholder: "Correo Electrónico",
+      join: "Suscribirse",
+      subscribedTitle: "Suscripción Exitosa",
+      subscribedDesc: "Bienvenido al diario del Hotel Le Berbère.",
+      subscribeFailTitle: "Error en la Suscripción",
+      subscribeFailDesc: "Se produjo un error. Por favor, inténtelo de nuevo.",
+      rights: `© ${new Date().getFullYear()} Hotel Le Berbère. Todos los derechos reservados.`,
+      privacy: "Política de Privacidad",
+      terms: "Términos de Servicio",
       admin: "Admin",
     },
   },

@@ -33,7 +33,7 @@ export default function Home() {
             className="absolute inset-0 bg-cover bg-center opacity-60 scale-105 animate-[slow-zoom_20s_ease-in-out_infinite_alternate]"
             style={{ backgroundImage: `url('https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=1600')` }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/70" />
         </div>
 
         <motion.div 
@@ -61,7 +61,7 @@ export default function Home() {
       </section>
 
       {/* Featured Suites */}
-      <section className="pt-16 pb-20 px-6 md:px-12 max-w-7xl mx-auto mt-6">
+      <section className="pt-12 pb-20 px-6 md:px-12 max-w-7xl mx-auto mt-0">
         <motion.div 
           initial="hidden"
           whileInView="visible"

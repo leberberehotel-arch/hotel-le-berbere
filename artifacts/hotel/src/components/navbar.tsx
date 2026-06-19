@@ -4,9 +4,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { useLanguage } from "@/i18n/LanguageContext";
+import type { Language } from "@/i18n/translations";
 
 export function Navbar() {
-  const { t, toggle } = useLanguage();
+  const { t, lang, setLang } = useLanguage();
   const [location] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -14,11 +15,15 @@ export function Navbar() {
   const navLinks = [
     { name: t.nav.home, path: "/" },
     { name: t.nav.rooms, path: "/rooms" },
-    { name: t.nav.experiences, path: "/experiences" },
-    { name: t.nav.dining, path: "/restaurants" },
     { name: t.nav.gallery, path: "/gallery" },
     { name: t.nav.about, path: "/about" },
     { name: t.nav.contact, path: "/contact" },
+  ];
+
+  const languages: { code: Language; label: string }[] = [
+    { code: "en", label: "EN" },
+    { code: "fr", label: "FR" },
+    { code: "es", label: "ES" },
   ];
 
   useEffect(() => {
@@ -32,6 +37,24 @@ export function Navbar() {
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location]);
+
+  const LangSwitcher = () => (
+    <div className="flex border border-primary/40 overflow-hidden">
+      {languages.map((l) => (
+        <button
+          key={l.code}
+          onClick={() => setLang(l.code)}
+          className={`text-xs uppercase tracking-widest px-2.5 py-1.5 font-medium transition-colors ${
+            lang === l.code
+              ? "bg-primary text-primary-foreground"
+              : "text-primary hover:bg-primary/10"
+          }`}
+        >
+          {l.label}
+        </button>
+      ))}
+    </div>
+  );
 
   return (
     <>
@@ -86,23 +109,12 @@ export function Navbar() {
                 <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent z-0"></div>
               </Button>
             </Link>
-            {/* Language Switcher */}
-            <button
-              onClick={toggle}
-              className="text-xs uppercase tracking-widest border border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-colors px-3 py-1.5 font-medium"
-            >
-              {t.langSwitcher}
-            </button>
+            <LangSwitcher />
           </div>
 
           {/* Mobile Toggle */}
           <div className="md:hidden flex items-center gap-3">
-            <button
-              onClick={toggle}
-              className="text-xs uppercase tracking-widest border border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-colors px-3 py-1.5 font-medium"
-            >
-              {t.langSwitcher}
-            </button>
+            <LangSwitcher />
             <button
               className="text-foreground hover:text-primary transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

@@ -1,7 +1,7 @@
-import { Router, type IRouter, type Request, type Response, type NextFunction } from "express";
-import { eq, count, sum, avg } from "drizzle-orm";
-import { db, roomsTable, bookingsTable } from "@workspace/db";
-import { createHash, randomBytes } from "node:crypto";
+import { Router, type IRouter, type Request, type Response } from "express";
+import { eq, count, sum, avg, desc } from "drizzle-orm";
+import { db, roomsTable, bookingsTable, reviewsTable, newsletterTable } from "@workspace/db";
+import { randomBytes } from "node:crypto";
 import {
   GetAdminStatsResponse,
   GetOccupancyByMonthQueryParams,
@@ -241,6 +241,100 @@ router.delete("/admin/rooms/:id", async (req, res): Promise<void> => {
   }
 
   res.json({ success: true });
+});
+
+// ─── REVIEWS ────────────────────────────────────────────────────────────────
+
+router.get("/admin/reviews", async (_req: Request, res: Response): Promise<void> => {
+  const rows = await db.select().from(reviewsTable).orderBy(desc(reviewsTable.createdAt));
+  res.json(
+    rows.map((r) => ({
+      id: r.id,
+      guestName: r.guestName,
+      country: r.country,
+      rating: parseFloat(r.rating as unknown as string),
+      title: r.title,
+      body: r.body,
+      stayDate: r.stayDate,
+      roomName: r.roomName ?? null,
+      featured: r.featured,
+      createdAt: r.createdAt?.toISOString() ?? null,
+    }))
+  );
+});
+
+router.post("/admin/reviews", async (req: Request, res: Response): Promise<void> => {
+  const { guestName, country, rating, title, body, stayDate, roomName, featured } = req.body as Record<string, unknown>;
+  if (!guestName || !country || !rating || !title || !body) {
+    res.status(400).json({ error: "Missing required fields: guestName, country, rating, title, body" });
+    return;
+  }
+  const ratingNum = Number(rating);
+  if (isNaN(ratingNum) || ratingNum < 1 || ratingNum > 5) {
+    res.status(400).json({ error: "Rating must be 1–5" });
+    return;
+  }
+  const [review] = await db
+    .insert(reviewsTable)
+    .values({
+      guestName: String(guestName),
+      country: String(country),
+      rating: ratingNum.toString() as unknown as never,
+      title: String(title),
+      body: String(body),
+      stayDate: stayDate ? String(stayDate) : new Date().toISOString().substring(0, 7),
+      roomName: roomName ? String(roomName) : null,
+      featured: Boolean(featured),
+    })
+    .returning();
+  res.status(201).json(review);
+});
+
+router.patch("/admin/reviews/:id", async (req: Request, res: Response): Promise<void> => {
+  const raw = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  const id = parseInt(raw, 10);
+  const allowed = ["guestName", "country", "rating", "title", "body", "stayDate", "roomName", "featured"] as const;
+  const updateData: Record<string, unknown> = {};
+  for (const key of allowed) {
+    if (req.body[key] !== undefined) {
+      updateData[key] = key === "rating" ? String(Number(req.body[key])) : req.body[key];
+    }
+  }
+  if (Object.keys(updateData).length === 0) {
+    res.status(400).json({ error: "No valid fields to update" });
+    return;
+  }
+  const [review] = await db
+    .update(reviewsTable)
+    .set(updateData)
+    .where(eq(reviewsTable.id, id))
+    .returning();
+  if (!review) {
+    res.status(404).json({ error: "Review not found" });
+    return;
+  }
+  res.json(review);
+});
+
+router.delete("/admin/reviews/:id", async (req: Request, res: Response): Promise<void> => {
+  const raw = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  const id = parseInt(raw, 10);
+  await db.delete(reviewsTable).where(eq(reviewsTable.id, id));
+  res.json({ ok: true });
+});
+
+// ─── NEWSLETTER ─────────────────────────────────────────────────────────────
+
+router.get("/admin/newsletter/subscribers", async (_req: Request, res: Response): Promise<void> => {
+  const rows = await db.select().from(newsletterTable).orderBy(desc(newsletterTable.subscribedAt));
+  res.json(
+    rows.map((s) => ({
+      id: s.id,
+      email: s.email,
+      firstName: s.firstName ?? null,
+      subscribedAt: s.subscribedAt?.toISOString() ?? null,
+    }))
+  );
 });
 
 export default router;

@@ -65,21 +65,20 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Navigation */}
+          {/* Navigation — no Experiences/Dining */}
           <div className="col-span-1">
-            <h4 className="font-serif text-lg text-foreground tracking-widests mb-6">{t.footer.explore}</h4>
+            <h4 className="font-serif text-lg text-foreground mb-6">{t.footer.explore}</h4>
             <ul className="space-y-4">
               <li><Link href="/rooms" className="text-muted-foreground hover:text-primary text-sm uppercase tracking-wider transition-colors">{t.footer.suites}</Link></li>
-              <li><Link href="/experiences" className="text-muted-foreground hover:text-primary text-sm uppercase tracking-wider transition-colors">{t.footer.experiences}</Link></li>
-              <li><Link href="/restaurants" className="text-muted-foreground hover:text-primary text-sm uppercase tracking-wider transition-colors">{t.footer.fineDining}</Link></li>
               <li><Link href="/gallery" className="text-muted-foreground hover:text-primary text-sm uppercase tracking-wider transition-colors">{t.footer.gallery}</Link></li>
               <li><Link href="/about" className="text-muted-foreground hover:text-primary text-sm uppercase tracking-wider transition-colors">{t.footer.ourStory}</Link></li>
+              <li><Link href="/contact" className="text-muted-foreground hover:text-primary text-sm uppercase tracking-wider transition-colors">{t.footer.contact}</Link></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div className="col-span-1">
-            <h4 className="font-serif text-lg text-foreground tracking-widests mb-6">{t.footer.contact}</h4>
+            <h4 className="font-serif text-lg text-foreground mb-6">{t.footer.contact}</h4>
             <ul className="space-y-4 text-muted-foreground text-sm">
               <li className="leading-relaxed">
                 W8HJ+R7J, Hay Pam<br />
@@ -107,7 +106,7 @@ export function Footer() {
 
           {/* Newsletter */}
           <div className="col-span-1 md:col-span-1">
-            <h4 className="font-serif text-lg text-foreground tracking-widests mb-6">{t.footer.journal}</h4>
+            <h4 className="font-serif text-lg text-foreground mb-6">{t.footer.journal}</h4>
             <p className="text-muted-foreground text-sm mb-6">
               {t.footer.journalSub}
             </p>
